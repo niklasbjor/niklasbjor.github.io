@@ -1,0 +1,35 @@
+* {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+
+h1 {
+    color: SeaGreen;
+}
+
+
+p,
+li {
+    font-size: 14px;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+/*body {*/
+/*    font-family: tahoma;*/
+/*    color: #282828;*/
+/*    margin: 0px;*/
+/*}*/
+
+.nav-bar {
+    background: linear-gradient(-90deg, #4b0fcf, #c014ba);
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.reddish {
+    color: darkred;
+}
