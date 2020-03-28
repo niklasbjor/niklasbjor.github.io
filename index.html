@@ -1,21 +1,23 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <link href="./resources/css/index.css" type="text/css" rel="stylesheet">
+    <script src="https://unpkg.com/vue"></script>
     <title>This is a title</title>
 </head>
 <body>
-<div class="nav-bar"></div>
-<div>
-    <p>Hi! Not much to see here now. At a later time you might be able to:</p>
-    <ul>
-        <li>throw dice</li>
-        <li>see interesting stats</li>
-        <li>view fancy graphs</li>
-        <li>do other cool stuff</li>
-    </ul>
-    <button>
-        Who knows what will happen when you push this button?
-    </button>
+<div id="app">
+    <div class="nav-bar"></div>
+    <div>
+        <button v-on:click="rollDie6">Roll</button>
+    </div>
+    <div>
+<!--        <p v-if="showResult"> RESULT </p>-->
+<!--        <p v-else="showResult"> ***** </p>-->
+        {{ diceResult }}
+    </div>
 </div>
+
+<script src="main.js"></script>
 </body>
 </html>
