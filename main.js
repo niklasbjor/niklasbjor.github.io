@@ -13,4 +13,4 @@ var app = new Vue({
             this.diceResult = Math.ceil(Math.random() * 6);
         }
     }
-})
+});

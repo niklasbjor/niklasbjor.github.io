@@ -2,18 +2,25 @@
 <html lang="en">
 <head>
     <link href="./resources/css/index.css" type="text/css" rel="stylesheet">
+    <link rel="icon" href="resources/die6.jpg" type="image/jpg">
     <script src="https://unpkg.com/vue"></script>
-    <title>This is a title</title>
+    <title>Dice App</title>
 </head>
 <body>
+<div class="nav-bar"></div>
 <div id="app">
-    <div class="nav-bar"></div>
+    <div>
+        <img src="resources/sword.jpg" alt="attack">
+        <img src="resources/shield.jpg" alt="defense">
+    </div>
+    <div class="basic-element">
+        <h1>attack</h1>
+        <h1>defense</h1>
+    </div>
     <div>
         <button v-on:click="rollDie6">Roll</button>
     </div>
-    <div>
-<!--        <p v-if="showResult"> RESULT </p>-->
-<!--        <p v-else="showResult"> ***** </p>-->
+    <div class="resultDisplay" v-if="diceResult != null">
         {{ diceResult }}
     </div>
 </div>
