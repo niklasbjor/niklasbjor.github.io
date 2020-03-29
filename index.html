@@ -19,9 +19,29 @@
     </div>
     <div>
         <button v-on:click="rollDie6">Roll</button>
+        <button v-on:click="rollAtt3Def2">Roll all</button>
     </div>
     <div class="resultDisplay" v-if="diceResult != null">
         {{ diceResult }}
+    </div>
+    <div>
+        <p class="resultDisplay">
+            {{ att1 }}
+            {{ att2 }}
+            {{ att3 }}
+        </p>
+        <p class="resultDisplay">
+            {{ def1 }}
+            {{ def2 }}
+        </p>
+    </div>
+    <div>
+        <p class="resultDisplay" v-if="attLosses != null">
+            Attacker loses {{ attLosses}}
+        </p>
+        <p class="resultDisplay" v-if="defLosses != null">
+            Defender loses {{ defLosses}}
+        </p>
     </div>
 </div>
 

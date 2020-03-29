@@ -18,12 +18,17 @@ a {
     text-decoration: none;
 }
 
+img {
+    margin: 20px;
+}
+
 #app {
     display: flex;
 }
 
 button {
     margin-top: 30px;
+    margin-left: 10px;
     border: none;
     background-color: #8311c4;
     color: white;
