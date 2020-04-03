@@ -37,22 +37,29 @@ button {
     font-size: 18px;
 }
 
-.basic-element {
-    margin: 20px;
-}
-
-.resultDisplay {
-    font-size: 32px;
-    color: #585858;
-    margin: 30px;
-}
-
 .nav-bar {
     background: linear-gradient(-90deg, #4b0fcf, #c014ba);
     height: 60px;
     margin-bottom: 15px;
 }
 
-.reddish {
-    color: darkred;
+
+.roller {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    align-content: space-around;
+}
+
+.roller-line {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.resultDisplay {
+    font-size: 32px;
+    color: #585858;
+    margin: 30px;
 }

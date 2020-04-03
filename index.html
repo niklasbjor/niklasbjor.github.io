@@ -9,42 +9,48 @@
 <body>
 <div class="nav-bar"></div>
 <div id="app">
-    <div>
-        <img src="resources/sword.jpg" alt="attack">
-        <img src="resources/shield.jpg" alt="defense">
+    <div class="roller">
+        <div class="roller-line">
+            <div>
+                <img src="resources/sword.jpg" alt="attack" height="80px" width="80px">
+            </div>
+            <div>3</div>
+            <div>
+                <p class="resultDisplay">
+                    {{ att1 }}
+                    {{ att2 }}
+                    {{ att3 }}
+                </p>
+            </div>
+            <div>
+                <p class="resultDisplay" v-if="attLosses != null">
+                    Attacker loses {{ attLosses}}
+                </p>
+            </div>
+        </div>
+        <div class="roller-line">
+            <div>
+                <img src="resources/shield.jpg" alt="defense" height="80px" width="80px">
+            </div>
+            <div>2</div>
+            <div>
+                <p class="resultDisplay">
+                    {{ def1 }}
+                    {{ def2 }}
+                </p>
+            </div>
+            <div>
+                <p class="resultDisplay" v-if="defLosses != null">
+                    Defender loses {{ defLosses}}
+                </p>
+            </div>
+        </div>
+        <div>
+            <button v-on:click="rollAtt3Def2">Roll all</button>
+        </div>
     </div>
-    <div class="basic-element">
-        <h1>attack</h1>
-        <h1>defense</h1>
-    </div>
-    <div>
-        <button v-on:click="rollDie6">Roll</button>
-        <button v-on:click="rollAtt3Def2">Roll all</button>
-    </div>
-    <div class="resultDisplay" v-if="diceResult != null">
-        {{ diceResult }}
-    </div>
-    <div>
-        <p class="resultDisplay">
-            {{ att1 }}
-            {{ att2 }}
-            {{ att3 }}
-        </p>
-        <p class="resultDisplay">
-            {{ def1 }}
-            {{ def2 }}
-        </p>
-    </div>
-    <div>
-        <p class="resultDisplay" v-if="attLosses != null">
-            Attacker loses {{ attLosses}}
-        </p>
-        <p class="resultDisplay" v-if="defLosses != null">
-            Defender loses {{ defLosses}}
-        </p>
-    </div>
-</div>
 
-<script src="main.js"></script>
+    <script src="main.js"></script>
+</div>
 </body>
 </html>
