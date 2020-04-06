@@ -1,7 +1,8 @@
 var app = new Vue({
     el: '#app',
     data: {
-        diceResult: null,
+        numAttDice: 3,
+        numDefDice: 2,
         att1: null,
         att2: null,
         att3: null,
@@ -11,38 +12,40 @@ var app = new Vue({
         defLosses: null
     },
     methods: {
-        rollDie6: function () {
-            console.log('rollDie6');
-            this.diceResult = Math.ceil(Math.random() * 6);
+        throwDie: function () {
+            return Math.ceil(Math.random() * 6);
         },
-        rollAtt3Def2: function () {
-            console.log('rollAtt3Def2');
+        rollDice: function () {
+            console.log('rollDice with att: ' + this.numAttDice + ', def: ' + this.numDefDice);
 
             this.defLosses = 0;
+            var attThrows = [-1, -1, -1];
+            var defThrows = [-1, -1];
 
-            var a1 = Math.ceil(Math.random() * 6);
-            var a2 = Math.ceil(Math.random() * 6);
-            var a3 = Math.ceil(Math.random() * 6);
-            var d1 = Math.ceil(Math.random() * 6);
-            var d2 = Math.ceil(Math.random() * 6);
-
-            var attackerThrows = [a1, a2, a3].sort().reverse();
-            var defenderThrows = [d1, d2].sort().reverse();
-
-            this.att1 = attackerThrows[0];
-            this.att2 = attackerThrows[1];
-            this.att3 = attackerThrows[2];
-            this.def1 = defenderThrows[0];
-            this.def2 = defenderThrows[1];
-
-            if (this.att1 > this.def1) {
-                this.defLosses++;
+            for (let i = 0; i < this.numAttDice; i++) {
+                attThrows[i] = this.throwDie();
             }
-            if (this.att2 > this.def2) {
-                this.defLosses++;
+            for (let i = 0; i < this.numDefDice; i++) {
+                defThrows[i] = this.throwDie();
             }
 
-            this.attLosses = 2 - this.defLosses;
+            attThrows = attThrows.sort().reverse();
+            defThrows = defThrows.sort().reverse();
+
+            this.att1 = attThrows[0] !== -1 ? attThrows[0] : null;
+            this.att2 = attThrows[1] !== -1 ? attThrows[1] : null;
+            this.att3 = attThrows[2] !== -1 ? attThrows[2] : null;
+            this.def1 = defThrows[0] !== -1 ? defThrows[0] : null;
+            this.def2 = defThrows[1] !== -1 ? defThrows[1] : null;
+
+            var numberOfTroopsAtStake = Math.min(this.numAttDice, this.numDefDice);
+            for (let i = 0; i < numberOfTroopsAtStake; i++) {
+                if (attThrows[i] > defThrows[i]) {
+                    this.defLosses++;
+                }
+            }
+
+            this.attLosses = numberOfTroopsAtStake - this.defLosses;
         }
     }
 });
