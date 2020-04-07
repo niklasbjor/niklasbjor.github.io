@@ -3,22 +3,12 @@ var app = new Vue({
     data: {
         numAttDice: 3,
         numDefDice: 2,
-        attResults: [
-            {value: null, color: '#FFFFFF'},
-            {value: null, color: '#FFFFFF'},
-            {value: null, color: '#FFFFFF'}
-        ],
-        defResults: [
-            {value: null, color: '#FFFFFF'},
-            {value: null, color: '#FFFFFF'}
-        ],
+        attResults: null,
+        defResults: null,
         attLosses: null,
         defLosses: null,
     },
     methods: {
-        throwDie: function () {
-            return Math.ceil(Math.random() * 6);
-        },
         rollDice: function () {
             console.log('rollDice with att: ' + this.numAttDice + ', def: ' + this.numDefDice);
 
@@ -34,8 +24,8 @@ var app = new Vue({
                 defThrows[i] = this.throwDie();
             }
 
-            attThrows.sort().reverse();
-            defThrows.sort().reverse();
+            this.sortNumericDescending(attThrows);
+            this.sortNumericDescending(defThrows);
 
             for (let i = 0; i < this.numAttDice; i++) {
                 this.attResults[i] = this.getResult(attThrows[i])
@@ -58,6 +48,9 @@ var app = new Vue({
 
             this.attLosses = numberOfTroopsAtStake - this.defLosses;
         },
+        throwDie: function () {
+            return Math.ceil(Math.random() * 6);
+        },
         getResult: function (number) {
             return {value: number, color: '#FFFFFF'};
         },
@@ -71,6 +64,11 @@ var app = new Vue({
                 this.getResult(null)];
 
             this.defLosses = 0;
+        },
+        sortNumericDescending: function (array) {
+            array.sort(function (a, b) {
+                return b - a;
+            });
         }
     }
 });
