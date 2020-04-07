@@ -85,3 +85,10 @@ button {
     margin: 30px;
     text-align: right;
 }
+
+.modifier {
+    display: flex;
+    flex-direction: column;
+    width: 90px;
+    margin: 20px;
+}

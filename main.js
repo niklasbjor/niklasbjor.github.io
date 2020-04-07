@@ -7,6 +7,9 @@ var app = new Vue({
         defResults: null,
         attLosses: null,
         defLosses: null,
+        hasAttLeader: false,
+        hasDefLeader: false,
+        hasDefFortress: false
     },
     methods: {
         rollDice: function () {
@@ -14,8 +17,8 @@ var app = new Vue({
 
             this.resetResults();
 
-            var attThrows = [-1, -1, -1];
-            var defThrows = [-1, -1];
+            let attThrows = [-1, -1, -1];
+            let defThrows = [-1, -1];
 
             for (let i = 0; i < this.numAttDice; i++) {
                 attThrows[i] = this.throwDie();
@@ -34,9 +37,11 @@ var app = new Vue({
                 this.defResults[i] = this.getResult(defThrows[i])
             }
 
-            var numberOfTroopsAtStake = Math.min(this.numAttDice, this.numDefDice);
+            this.applyModifiers();
+
+            let numberOfTroopsAtStake = Math.min(this.numAttDice, this.numDefDice);
             for (let i = 0; i < numberOfTroopsAtStake; i++) {
-                if (attThrows[i] > defThrows[i]) {
+                if (this.attResults[i].value > this.defResults[i].value) {
                     this.defLosses++;
                     this.attResults[i].color = 'rgba(157,255,69,0.61)';
                     this.defResults[i].color = 'rgba(255,67,30,0.61)';
@@ -69,6 +74,17 @@ var app = new Vue({
             array.sort(function (a, b) {
                 return b - a;
             });
+        },
+        applyModifiers: function () {
+            if (this.hasAttLeader) {
+                this.attResults[0].value = this.attResults[0].value + 1;
+            }
+            if (this.hasDefLeader) {
+                this.defResults[0].value = this.defResults[0].value + 1;
+            }
+            if (this.hasDefFortress) {
+                this.defResults[0].value = this.defResults[0].value + 1;
+            }
         }
     }
 });
