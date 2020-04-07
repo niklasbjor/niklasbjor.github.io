@@ -3,13 +3,17 @@ var app = new Vue({
     data: {
         numAttDice: 3,
         numDefDice: 2,
-        att1: null,
-        att2: null,
-        att3: null,
-        def1: null,
-        def2: null,
+        attResults: [
+            {value: null, color: '#FFFFFF'},
+            {value: null, color: '#FFFFFF'},
+            {value: null, color: '#FFFFFF'}
+        ],
+        defResults: [
+            {value: null, color: '#FFFFFF'},
+            {value: null, color: '#FFFFFF'}
+        ],
         attLosses: null,
-        defLosses: null
+        defLosses: null,
     },
     methods: {
         throwDie: function () {
@@ -18,7 +22,8 @@ var app = new Vue({
         rollDice: function () {
             console.log('rollDice with att: ' + this.numAttDice + ', def: ' + this.numDefDice);
 
-            this.defLosses = 0;
+            this.resetResults();
+
             var attThrows = [-1, -1, -1];
             var defThrows = [-1, -1];
 
@@ -29,23 +34,43 @@ var app = new Vue({
                 defThrows[i] = this.throwDie();
             }
 
-            attThrows = attThrows.sort().reverse();
-            defThrows = defThrows.sort().reverse();
+            attThrows.sort().reverse();
+            defThrows.sort().reverse();
 
-            this.att1 = attThrows[0] !== -1 ? attThrows[0] : null;
-            this.att2 = attThrows[1] !== -1 ? attThrows[1] : null;
-            this.att3 = attThrows[2] !== -1 ? attThrows[2] : null;
-            this.def1 = defThrows[0] !== -1 ? defThrows[0] : null;
-            this.def2 = defThrows[1] !== -1 ? defThrows[1] : null;
+            for (let i = 0; i < this.numAttDice; i++) {
+                this.attResults[i] = this.getResult(attThrows[i])
+            }
+            for (let i = 0; i < this.numDefDice; i++) {
+                this.defResults[i] = this.getResult(defThrows[i])
+            }
 
             var numberOfTroopsAtStake = Math.min(this.numAttDice, this.numDefDice);
             for (let i = 0; i < numberOfTroopsAtStake; i++) {
                 if (attThrows[i] > defThrows[i]) {
                     this.defLosses++;
+                    this.attResults[i].color = 'rgba(157,255,69,0.61)';
+                    this.defResults[i].color = 'rgba(255,67,30,0.61)';
+                } else {
+                    this.attResults[i].color = 'rgba(255,67,30,0.61)';
+                    this.defResults[i].color = 'rgba(157,255,69,0.61)';
                 }
             }
 
             this.attLosses = numberOfTroopsAtStake - this.defLosses;
+        },
+        getResult: function (number) {
+            return {value: number, color: '#FFFFFF'};
+        },
+        resetResults: function () {
+            this.attResults = [
+                this.getResult(null),
+                this.getResult(null),
+                this.getResult(null)];
+            this.defResults = [
+                this.getResult(null),
+                this.getResult(null)];
+
+            this.defLosses = 0;
         }
     }
 });

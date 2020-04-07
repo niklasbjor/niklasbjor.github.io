@@ -64,7 +64,23 @@ button {
 }
 
 .resultDisplay {
+    display: flex;
     font-size: 32px;
     color: #585858;
     margin: 30px;
+    width: 120px;
+}
+
+.displayNumber {
+    font-size: 42px;
+    color: #585858;
+    padding: 5px;
+    margin: 10px;
+}
+
+.resultText {
+    font-size: 32px;
+    color: #585858;
+    margin: 30px;
+    text-align: right;
 }
