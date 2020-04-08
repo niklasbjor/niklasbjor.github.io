@@ -37,11 +37,27 @@ var app = new Vue({
                 this.defResults[i] = this.getResult(defThrows[i])
             }
 
-            this.applyModifiers();
-
             let numberOfTroopsAtStake = Math.min(this.numAttDice, this.numDefDice);
             for (let i = 0; i < numberOfTroopsAtStake; i++) {
-                if (this.attResults[i].value > this.defResults[i].value) {
+                let attModifier = 0;
+                let defModifier = 0;
+
+                if (i === 0) {
+                    if (this.hasAttLeader) {
+                        attModifier++;
+                        this.attResults[i].modifier++;
+                    }
+                    if (this.hasDefLeader) {
+                        defModifier++;
+                        this.defResults[i].modifier++;
+                    }
+                    if (this.hasDefFortress) {
+                        defModifier++;
+                        this.defResults[i].modifier++;
+                    }
+                }
+
+                if (attThrows[i] + attModifier > defThrows[i] + defModifier) {
                     this.defLosses++;
                     this.attResults[i].color = 'rgba(157,255,69,0.61)';
                     this.defResults[i].color = 'rgba(255,67,30,0.61)';
@@ -57,7 +73,7 @@ var app = new Vue({
             return Math.ceil(Math.random() * 6);
         },
         getResult: function (number) {
-            return {value: number, color: '#FFFFFF'};
+            return {value: number, modifier: 0, color: '#FFFFFF'};
         },
         resetResults: function () {
             this.attResults = [
@@ -74,17 +90,6 @@ var app = new Vue({
             array.sort(function (a, b) {
                 return b - a;
             });
-        },
-        applyModifiers: function () {
-            if (this.hasAttLeader) {
-                this.attResults[0].value = this.attResults[0].value + 1;
-            }
-            if (this.hasDefLeader) {
-                this.defResults[0].value = this.defResults[0].value + 1;
-            }
-            if (this.hasDefFortress) {
-                this.defResults[0].value = this.defResults[0].value + 1;
-            }
         }
     }
 });

@@ -29,6 +29,10 @@
                          class="displayNumber"
                          :style="{ backgroundColor: attResult.color}">
                         {{ attResult.value }}
+                        <div v-if="attResult.modifier > 0"
+                             class="modifierDisplay">
+                            +
+                        </div>
                     </div>
                 </div>
             </div>
@@ -61,6 +65,14 @@
                          class="displayNumber"
                          :style="{ backgroundColor: defResult.color}">
                         {{ defResult.value }}
+                        <div v-if="defResult.modifier > 0"
+                             class="modifierDisplay">
+                            +
+                        </div>
+                        <div v-if="defResult.modifier > 1"
+                             class="modifierDisplay">
+                            +
+                        </div>
                     </div>
                 </div>
             </div>
