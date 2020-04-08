@@ -63,7 +63,7 @@ button {
     align-items: center;
 }
 
-.resultDisplay {
+.result-display {
     display: flex;
     font-size: 32px;
     color: #585858;
@@ -72,7 +72,7 @@ button {
     width: 250px;
 }
 
-.displayNumber {
+.display-number {
     display: flex;
     font-size: 42px;
     width: 55px;
@@ -81,7 +81,7 @@ button {
     margin: 10px;
 }
 
-.resultText {
+.result-text {
     font-size: 32px;
     color: #585858;
     margin: 30px;
@@ -95,16 +95,16 @@ button {
     margin: 20px;
 }
 
-.modifierDisplay {
+.modifier-display {
     font-size: 20px;
     margin-left: 4px;
 }
 
-.modifierSub {
+.modifier-sub {
     display: flex;
     align-items: center;
 }
 
-.tinyImage {
+.tiny-image {
     margin: 4px;
 }

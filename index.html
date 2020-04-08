@@ -18,27 +18,27 @@
                 <input v-model="numAttDice" type="number" min="1" max="3">
             </label>
             <div class="modifier">
-                <div class="modifierSub">
+                <div class="modifier-sub">
                     <label for="attLeaderInput"></label>
                     <input id="attLeaderInput" v-model="hasAttLeader" type="checkbox">
-                    <img class="tinyImage" src="resources/images/leader_small.jpg" alt="leader">
+                    <img class="tiny-image" src="resources/images/leader_small.jpg" alt="leader">
                 </div>
             </div>
             <div>
-                <div class="resultDisplay">
+                <div class="result-display">
                     <div v-for="attResult in attResults"
-                         class="displayNumber"
+                         class="display-number"
                          :style="{ backgroundColor: attResult.color}">
                         {{ attResult.value }}
                         <div v-if="attResult.modifier > 0"
-                             class="modifierDisplay">
+                             class="modifier-display">
                             +
                         </div>
                     </div>
                 </div>
             </div>
             <div>
-                <p class="resultText" v-if="attLosses != null">
+                <p class="result-text" v-if="attLosses != null">
                     Lose {{ attLosses }}
                 </p>
             </div>
@@ -51,38 +51,38 @@
                 <input v-model="numDefDice" type="number" min="1" max="2">
             </label>
             <div class="modifier">
-                <div class="modifierSub">
+                <div class="modifier-sub">
                     <label for="defLeaderInput"></label>
                     <input id="defLeaderInput" v-model="hasDefLeader" type="checkbox">
-                    <img class="tinyImage" src="resources/images/leader_small.jpg" alt="leader">
+                    <img class="tiny-image" src="resources/images/leader_small.jpg" alt="leader">
 
                 </div>
-                <div class="modifierSub">
+                <div class="modifier-sub">
                     <label for="defFortressInput"></label>
                     <input id="defFortressInput" v-model="hasDefFortress" type="checkbox">
-                    <img class="tinyImage" src="resources/images/fortress_small.jpg" alt="fortress">
+                    <img class="tiny-image" src="resources/images/fortress_small.jpg" alt="fortress">
 
                 </div>
             </div>
             <div>
-                <div class="resultDisplay">
+                <div class="result-display">
                     <div v-for="defResult in defResults"
-                         class="displayNumber"
+                         class="display-number"
                          :style="{ backgroundColor: defResult.color}">
                         {{ defResult.value }}
                         <div v-if="defResult.modifier > 0"
-                             class="modifierDisplay">
+                             class="modifier-display">
                             +
                         </div>
                         <div v-if="defResult.modifier > 1"
-                             class="modifierDisplay">
+                             class="modifier-display">
                             +
                         </div>
                     </div>
                 </div>
             </div>
             <div>
-                <p class="resultText" v-if="defLosses != null">
+                <p class="result-text" v-if="defLosses != null">
                     Lose {{ defLosses }}
                 </p>
             </div>
