@@ -39,31 +39,28 @@ var app = new Vue({
 
             let numberOfTroopsAtStake = Math.min(this.numAttDice, this.numDefDice);
             for (let i = 0; i < numberOfTroopsAtStake; i++) {
-                let attModifier = 0;
-                let defModifier = 0;
+                let attResult = this.attResults[i];
+                let defResult = this.defResults[i];
 
                 if (i === 0) {
                     if (this.hasAttLeader) {
-                        attModifier++;
-                        this.attResults[i].modifier++;
+                        attResult.modifier++;
                     }
                     if (this.hasDefLeader) {
-                        defModifier++;
-                        this.defResults[i].modifier++;
+                        defResult.modifier++;
                     }
                     if (this.hasDefFortress) {
-                        defModifier++;
-                        this.defResults[i].modifier++;
+                        defResult.modifier++;
                     }
                 }
 
-                if (attThrows[i] + attModifier > defThrows[i] + defModifier) {
+                if (attResult.value + attResult.modifier > defResult.value + defResult.modifier) {
                     this.defLosses++;
-                    this.attResults[i].color = 'rgba(157,255,69,0.61)';
-                    this.defResults[i].color = 'rgba(255,67,30,0.61)';
+                    attResult.color = 'rgba(157,255,69,0.61)';
+                    defResult.color = 'rgba(255,67,30,0.61)';
                 } else {
-                    this.attResults[i].color = 'rgba(255,67,30,0.61)';
-                    this.defResults[i].color = 'rgba(157,255,69,0.61)';
+                    attResult.color = 'rgba(255,67,30,0.61)';
+                    defResult.color = 'rgba(157,255,69,0.61)';
                 }
             }
 
