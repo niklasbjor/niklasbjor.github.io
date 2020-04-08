@@ -87,6 +87,15 @@ var app = new Vue({
             array.sort(function (a, b) {
                 return b - a;
             });
+        },
+        toggleAttLeader: function () {
+            this.hasAttLeader = !this.hasAttLeader;
+        },
+        toggleDefLeader: function () {
+            this.hasDefLeader = !this.hasDefLeader;
+        },
+        toggleDefFortress: function () {
+            this.hasDefFortress = !this.hasDefFortress;
         }
     }
 });

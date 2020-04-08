@@ -21,7 +21,8 @@
                 <div class="modifier-sub">
                     <label for="attLeaderInput"></label>
                     <input id="attLeaderInput" v-model="hasAttLeader" type="checkbox">
-                    <img class="tiny-image" src="resources/images/leader_small.jpg" alt="leader">
+                    <img class="tiny-image" src="resources/images/leader_small.jpg" alt="leader"
+                         @click="toggleAttLeader">
                 </div>
             </div>
             <div>
@@ -54,14 +55,14 @@
                 <div class="modifier-sub">
                     <label for="defLeaderInput"></label>
                     <input id="defLeaderInput" v-model="hasDefLeader" type="checkbox">
-                    <img class="tiny-image" src="resources/images/leader_small.jpg" alt="leader">
-
+                    <img class="tiny-image" src="resources/images/leader_small.jpg" alt="leader"
+                         @click="toggleDefLeader">
                 </div>
                 <div class="modifier-sub">
                     <label for="defFortressInput"></label>
                     <input id="defFortressInput" v-model="hasDefFortress" type="checkbox">
-                    <img class="tiny-image" src="resources/images/fortress_small.jpg" alt="fortress">
-
+                    <img class="tiny-image" src="resources/images/fortress_small.jpg" alt="fortress"
+                         @click="toggleDefFortress">
                 </div>
             </div>
             <div>
