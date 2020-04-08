@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <link href="./resources/css/index.css" type="text/css" rel="stylesheet">
-    <link rel="icon" href="resources/die6.jpg" type="image/jpg">
+    <link rel="icon" href="resources/images/die6.jpg" type="image/jpg">
     <script src="https://unpkg.com/vue"></script>
     <title>Dice App</title>
 </head>
@@ -12,16 +12,17 @@
     <div class="roller">
         <div class="roller-line">
             <div>
-                <img src="resources/sword.jpg" alt="attack" height="80px" width="80px">
+                <img src="resources/images/sword.jpg" alt="attack" height="80px" width="80px">
             </div>
             <label>
                 <input v-model="numAttDice" type="number" min="1" max="3">
             </label>
             <div class="modifier">
-                <label>
-                    <input v-model="hasAttLeader" type="checkbox">
-                    Leader
-                </label>
+                <div class="modifierSub">
+                    <label for="attLeaderInput"></label>
+                    <input id="attLeaderInput" v-model="hasAttLeader" type="checkbox">
+                    <img class="tinyImage" src="resources/images/leader_small.jpg" alt="leader">
+                </div>
             </div>
             <div>
                 <div class="resultDisplay">
@@ -44,20 +45,24 @@
         </div>
         <div class="roller-line">
             <div>
-                <img src="resources/shield.jpg" alt="defense" height="80px" width="80px">
+                <img src="resources/images/shield.jpg" alt="defense" height="80px" width="80px">
             </div>
             <label>
                 <input v-model="numDefDice" type="number" min="1" max="2">
             </label>
             <div class="modifier">
-                <label>
-                    <input v-model="hasDefLeader" type="checkbox">
-                    Leader
-                </label>
-                <label>
-                    <input v-model="hasDefFortress" type="checkbox">
-                    Fortress
-                </label>
+                <div class="modifierSub">
+                    <label for="defLeaderInput"></label>
+                    <input id="defLeaderInput" v-model="hasDefLeader" type="checkbox">
+                    <img class="tinyImage" src="resources/images/leader_small.jpg" alt="leader">
+
+                </div>
+                <div class="modifierSub">
+                    <label for="defFortressInput"></label>
+                    <input id="defFortressInput" v-model="hasDefFortress" type="checkbox">
+                    <img class="tinyImage" src="resources/images/fortress_small.jpg" alt="fortress">
+
+                </div>
             </div>
             <div>
                 <div class="resultDisplay">
