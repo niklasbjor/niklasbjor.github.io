@@ -96,6 +96,26 @@ var app = new Vue({
         },
         toggleDefFortress: function () {
             this.hasDefFortress = !this.hasDefFortress;
+        },
+        incrementNumAttDice: function () {
+            if (this.numAttDice < 3) {
+                this.numAttDice++;
+            }
+        },
+        decrementNumAttDice: function () {
+            if (this.numAttDice > 1) {
+                this.numAttDice--;
+            }
+        },
+        incrementNumDefDice: function () {
+            if (this.numDefDice < 2) {
+                this.numDefDice++;
+            }
+        },
+        decrementNumDefDice: function () {
+            if (this.numDefDice > 1) {
+                this.numDefDice--;
+            }
         }
     }
 });

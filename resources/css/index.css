@@ -1,18 +1,25 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#app {
+    display: flex;
+}
+
 * {
     font-family: Helvetica, Arial, sans-serif;
 }
-
 
 h1 {
     color: #4b0fcf;
 }
 
-
 p,
 li {
     font-size: 14px;
 }
-
 
 a {
     text-decoration: none;
@@ -25,10 +32,6 @@ img {
 input {
     font-size: 40px;
     padding: 10px 10px;
-}
-
-#app {
-    display: flex;
 }
 
 button {
@@ -107,4 +110,17 @@ button {
 
 .tiny-image {
     margin: 4px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.operator {
+    width: 40px;
+    border: 1px white;
+    margin-top: 1px;
+    margin-left: 2px;
+    font-size: 28px;
 }
