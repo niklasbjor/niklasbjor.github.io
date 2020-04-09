@@ -4,6 +4,14 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
+button:hover{
+    background-color: #c014ba;
+}
+
+button:hover[disabled]{
+    background-color: #dddddd;
+}
+
 #app {
     display: flex;
 }
