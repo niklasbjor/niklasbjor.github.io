@@ -18,8 +18,8 @@
                 <input v-model="numAttDice" type="number" min="1" max="3">
             </label>
             <div class="column">
-                <button id="attIncrementBtn" class="operator" @click="incrementNumAttDice" disabled>+</button>
-                <button id="attDecrementBtn" class="operator" @click="decrementNumAttDice">-</button>
+                <button id="attIncrementBtn" class="operator" @click="incrementNumAttDice" :disabled="numAttDice >=3">+</button>
+                <button id="attDecrementBtn" class="operator" @click="decrementNumAttDice" :disabled="numAttDice <= 1">-</button>
             </div>
             <div class="modifier">
                 <div class="modifier-sub">
@@ -56,8 +56,8 @@
                 <input v-model="numDefDice" type="number" min="1" max="2">
             </label>
             <div class="column">
-                <button id="defIncrementBtn" class="operator" @click="incrementNumDefDice" disabled>+</button>
-                <button id="defDecrementBtn" class="operator" @click="decrementNumDefDice">-</button>
+                <button id="defIncrementBtn" class="operator" @click="incrementNumDefDice" :disabled="numDefDice >= 2">+</button>
+                <button id="defDecrementBtn" class="operator" @click="decrementNumDefDice" :disabled="numAttDice <= 1">-</button>
             </div>
             <div class="modifier">
                 <div class="modifier-sub">

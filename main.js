@@ -99,35 +99,15 @@ var app = new Vue({
         },
         incrementNumAttDice: function () {
             this.numAttDice++;
-
-            document.getElementById('attDecrementBtn').disabled = false;
-            if (this.numAttDice >= 3) {
-                document.getElementById('attIncrementBtn').disabled = true;
-            }
         },
         decrementNumAttDice: function () {
             this.numAttDice--;
-
-            document.getElementById('attIncrementBtn').disabled = false;
-            if (this.numAttDice <= 1) {
-                document.getElementById('attDecrementBtn').disabled = true;
-            }
         },
         incrementNumDefDice: function () {
             this.numDefDice++;
-
-            document.getElementById('defDecrementBtn').disabled = false;
-            if (this.numDefDice >= 2) {
-                document.getElementById('defIncrementBtn').disabled = true;
-            }
         },
         decrementNumDefDice: function () {
             this.numDefDice--;
-
-            document.getElementById('defIncrementBtn').disabled = false;
-            if (this.numDefDice <= 1) {
-                document.getElementById('defDecrementBtn').disabled = true;
-            }
         }
     }
 });
