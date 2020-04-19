@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="resources/css/index.css" type="text/css" rel="stylesheet">
-    <script src="https://unpkg.com/vue"></script>
-    <title>Other Page</title>
+    <link href="resources/css/soundboard.css" type="text/css" rel="stylesheet">
+    <title>Soundboard</title>
+    <script>
+        var beep = new Audio();
+        beep.src = "resources/soundboard/beep.mp3";
+        var boop = new Audio();
+        boop.src = "resources/soundboard/boop.mp3";
+    </script>
 </head>
 <body>
 <div class="nav-bar"></div>
 
-<div>
-    Welcome to the soundboard!
-    There's nothing here yet...
+<div id="app">
+    <button onmousedown="beep.play()">Beep</button>
+    <button onmousedown="boop.play()">Boop</button>
 </div>
 
 </body>
