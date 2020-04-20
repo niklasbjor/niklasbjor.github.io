@@ -26,11 +26,17 @@ button {
     margin-top: 15px;
     margin-bottom: 15px;
     border: none;
+    border-radius: 55px;
+    box-shadow: 14px 14px 7px 0 rgba(0, 0, 0, 0.7);
     background: linear-gradient(20deg, #ff4700, #ff9304);
     color: #313131;
     width: 100%;
     font-size: 10vh;
     flex-grow: 1;
+}
+
+button:active {
+    box-shadow: inset 8px 8px 7px 0 rgba(0, 0, 0, 0.7);
 }
 
 #app {
