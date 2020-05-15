@@ -58,10 +58,12 @@ button:active {
 .button-group-container {
     display: flex;
     flex-direction: row;
+    width: 100%;
 }
 
 .button-group {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 50%;
 }
