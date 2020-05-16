@@ -44,6 +44,10 @@ button:active {
     box-shadow: inset 8px 8px 7px 0 rgba(0, 0, 0, 0.7);
 }
 
+:disabled {
+    color: #888888;
+    background: #dddddd;
+}
 #app {
     display: flex;
     flex-direction: column;

@@ -11,7 +11,27 @@ let soundTuples = [
     ['lapjepap', new Audio("soundboard/resources/sounds/lapjepap.mp3")],
     ['lelijkIsNiks', new Audio("soundboard/resources/sounds/lelijkisniks.mp3")],
     ['ochgodjemenas', new Audio("soundboard/resources/sounds/ochgodjemenas.mp3")]];
+const easterEggButton = 'gertruuuude';
+let counter = 0;
 
 document.addEventListener('DOMContentLoaded', e => {
-    soundTuples.forEach(st => document.getElementById(st[0]).addEventListener("mousedown", () => st[1].play()));
+    soundTuples.forEach(tuple => document.getElementById(tuple[0])
+        .addEventListener("mousedown", () => handleMouseDown(tuple)));
 });
+
+function handleMouseDown(tuple) {
+
+    if (tuple[0] === easterEggButton) {
+        counter++;
+    } else {
+        counter = 0;
+    }
+
+    if (counter < 3) {
+        tuple[1].play();
+        document.getElementById(easterEggButton).disabled = false;
+    } else {
+        window.alert('Gelieve Gertrude niet te misbruiken');
+        document.getElementById(easterEggButton).disabled = true;
+    }
+}
