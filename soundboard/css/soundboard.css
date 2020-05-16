@@ -22,6 +22,11 @@ h1 {
     color: #313131;
 }
 
+img {
+    width: 50vw;
+    max-width: 500px;
+}
+
 button {
     margin: 15px;
     border: none;
@@ -31,6 +36,7 @@ button {
     color: #313131;
     width: 97%;
     font-size: 4vh;
+    padding: 25px;
     flex-grow: 1;
 }
 
@@ -70,6 +76,10 @@ button:active {
 }
 
 @media only screen and (min-width: 1100px) {
+    button {
+        padding: 10px;
+        margin: 10px;
+    }
     .button-group {
         width: 50%;
     }
