@@ -47,6 +47,7 @@ button:active {
 :disabled {
     color: #888888;
     background: #dddddd;
+    box-shadow: none;
 }
 #app {
     display: flex;
