@@ -10,7 +10,8 @@ let soundTuples = [
     ['kustNaMenKlte', new Audio("soundboard/resources/sounds/kustnamenkl.mp3")],
     ['lapjepap', new Audio("soundboard/resources/sounds/lapjepap.mp3")],
     ['lelijkIsNiks', new Audio("soundboard/resources/sounds/lelijkisniks.mp3")],
-    ['ochgodjemenas', new Audio("soundboard/resources/sounds/ochgodjemenas.mp3")]];
+    ['ochgodjemenas', new Audio("soundboard/resources/sounds/ochgodjemenas.mp3")],
+    ['pakawi', new Audio("soundboard/resources/sounds/pakawi.mp3")]];
 const easterEggButton = 'gertruuuude';
 let counter = 0;
 
