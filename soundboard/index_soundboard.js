@@ -4,7 +4,7 @@ let soundTuples = [
     ['eyKalmHeZalm', new Audio("soundboard/resources/sounds/eykalmhezalm.mp3")],
     ['munt', new Audio("soundboard/resources/sounds/munt.mp3")],
     ['ochMennekeToch', new Audio("soundboard/resources/sounds/ochmenneketoch.mp3")],
-    ['wegSfeer', new Audio("soundboard/resources/sounds/wegsfeer.mp3")],
+    ['wegSfeer', (new Audio("soundboard/resources/sounds/wegsfeer.mp3"))],
     ['gertruuuude', new Audio("soundboard/resources/sounds/gertruuuude.mp3")],
     ['goeiendaag', new Audio("soundboard/resources/sounds/goeiendaag.mp3")],
     ['kustNaMenKlte', new Audio("soundboard/resources/sounds/kustnamenkl.mp3")],
@@ -14,24 +14,40 @@ let soundTuples = [
 const easterEggButton = 'gertruuuude';
 let counter = 0;
 
-document.addEventListener('DOMContentLoaded', e => {
-    soundTuples.forEach(tuple => document.getElementById(tuple[0])
-        .addEventListener("mousedown", () => handleMouseDown(tuple)));
+document.addEventListener('DOMContentLoaded', () => {
+    soundTuples.forEach(tuple => {
+        document.getElementById(tuple[0]).addEventListener("click", () => handleClick(tuple));
+        tuple[1].addEventListener('ended', () => handleEnded(tuple[0]))
+    });
 });
 
-function handleMouseDown(tuple) {
+function handleClick(tuple) {
+    if (counter >= 2 && tuple[0] === easterEggButton) {
+        new Audio("soundboard/resources/sounds/wegsfeer.mp3").play();
+        window.alert('Gelieve Gertrude niet te misbruiken');
+        document.getElementById(easterEggButton).disabled = true;
+    } else {
+        playSound(tuple);
 
-    if (tuple[0] === easterEggButton) {
+        document.getElementById(easterEggButton).disabled = false;
+    }
+}
+
+async function playSound(tuple) {
+    try {
+        await tuple[1].play();
+        document.getElementById(tuple[0]).classList.add('active-button');
+    } catch (err) {
+        document.getElementById(tuple[0]).classList.remove('active-button');
+    }
+}
+
+function handleEnded(soundName) {
+    if (soundName === easterEggButton) {
         counter++;
     } else {
         counter = 0;
     }
 
-    if (counter < 3) {
-        tuple[1].play();
-        document.getElementById(easterEggButton).disabled = false;
-    } else {
-        window.alert('Gelieve Gertrude niet te misbruiken');
-        document.getElementById(easterEggButton).disabled = true;
-    }
+    document.getElementById(soundName).classList.remove('active-button');
 }
