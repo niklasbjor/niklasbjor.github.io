@@ -29,7 +29,6 @@ function handleClick(tuple) {
         document.getElementById(easterEggButton).disabled = true;
     } else {
         playSound(tuple);
-
         document.getElementById(easterEggButton).disabled = false;
     }
 }
