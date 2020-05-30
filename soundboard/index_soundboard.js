@@ -1,10 +1,11 @@
+let wegSfeer = new Audio("soundboard/resources/sounds/wegsfeer.mp3");
 let soundTuples = [
     ['dasAlTeLoate', new Audio("soundboard/resources/sounds/dasalteloate.mp3")],
     ['oekNiWaar', new Audio("soundboard/resources/sounds/oekniwaar.mp3")],
     ['eyKalmHeZalm', new Audio("soundboard/resources/sounds/eykalmhezalm.mp3")],
     ['munt', new Audio("soundboard/resources/sounds/munt.mp3")],
     ['ochMennekeToch', new Audio("soundboard/resources/sounds/ochmenneketoch.mp3")],
-    ['wegSfeer', (new Audio("soundboard/resources/sounds/wegsfeer.mp3"))],
+    ['wegSfeer', (wegSfeer)],
     ['gertruuuude', new Audio("soundboard/resources/sounds/gertruuuude.mp3")],
     ['goeiendaag', new Audio("soundboard/resources/sounds/goeiendaag.mp3")],
     ['kustNaMenKlte', new Audio("soundboard/resources/sounds/kustnamenkl.mp3")],
@@ -24,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function handleClick(tuple) {
     if (counter >= 2 && tuple[0] === easterEggButton) {
-        new Audio("soundboard/resources/sounds/wegsfeer.mp3").play();
+        wegSfeer.play();
         window.alert('Gelieve Gertrude niet te misbruiken');
         document.getElementById(easterEggButton).disabled = true;
     } else {
