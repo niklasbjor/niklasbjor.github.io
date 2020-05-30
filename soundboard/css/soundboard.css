@@ -35,7 +35,7 @@ button {
     background: linear-gradient(20deg, #ff4700, #ff9304);
     color: #313131;
     width: 97%;
-    font-size: 4vh;
+    font-size: 50px;
     padding: 25px;
     flex-grow: 1;
 }
@@ -73,23 +73,20 @@ button:active {
 .button-group-container {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     width: 100%;
+    height: 50%;
 }
 
 .button-group {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 50%;
 }
 
 @media only screen and (min-width: 960px) {
     button {
         padding: 10px;
         margin: 10px;
-    }
-    .button-group {
-        width: 50%;
     }
 }
