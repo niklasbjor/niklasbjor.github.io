@@ -36,7 +36,7 @@ button {
     color: #313131;
     width: 97%;
     font-size: 50px;
-    padding: 25px;
+    padding: 35px;
     flex-grow: 1;
 }
 
@@ -83,7 +83,7 @@ button:active {
     width: 50%;
 }
 
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 1100px) {
     button {
         padding: 10px;
         margin: 10px;
