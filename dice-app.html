@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="resources/css/index.css" type="text/css" rel="stylesheet">
-    <link rel="icon" href="resources/images/die6.jpg" type="image/jpg">
+    <link href="dice-app/resources/css/index.css" type="text/css" rel="stylesheet">
+    <link rel="icon" href="dice-app/resources/images/die6.jpg" type="image/jpg">
     <script src="https://unpkg.com/vue"></script>
     <title>Dice App</title>
     <meta name="description" content="Throw some dice and stuff">
@@ -14,7 +14,7 @@
     <div class="roller">
         <div class="roller-line">
             <div>
-                <img src="resources/images/sword.jpg" alt="attack" height="80px" width="80px">
+                <img src="dice-app/resources/images/sword.jpg" alt="attack" height="80px" width="80px">
             </div>
             <label>
                 <input v-model="numAttDice" type="number" min="1" max="3">
@@ -27,7 +27,7 @@
                 <div class="modifier-sub">
                     <label for="attLeaderInput"></label>
                     <input id="attLeaderInput" v-model="hasAttLeader" type="checkbox">
-                    <img class="tiny-image" src="resources/images/leader_small.jpg" alt="leader"
+                    <img class="tiny-image" src="dice-app/resources/images/leader_small.jpg" alt="leader"
                          @click="toggleAttLeader">
                 </div>
             </div>
@@ -52,7 +52,7 @@
         </div>
         <div class="roller-line">
             <div>
-                <img src="resources/images/shield.jpg" alt="defense" height="80px" width="80px">
+                <img src="dice-app/resources/images/shield.jpg" alt="defense" height="80px" width="80px">
             </div>
             <label>
                 <input v-model="numDefDice" type="number" min="1" max="2">
@@ -65,13 +65,13 @@
                 <div class="modifier-sub">
                     <label for="defLeaderInput"></label>
                     <input id="defLeaderInput" v-model="hasDefLeader" type="checkbox">
-                    <img class="tiny-image" src="resources/images/leader_small.jpg" alt="leader"
+                    <img class="tiny-image" src="dice-app/resources/images/leader_small.jpg" alt="leader"
                          @click="toggleDefLeader">
                 </div>
                 <div class="modifier-sub">
                     <label for="defFortressInput"></label>
                     <input id="defFortressInput" v-model="hasDefFortress" type="checkbox">
-                    <img class="tiny-image" src="resources/images/fortress_small.jpg" alt="fortress"
+                    <img class="tiny-image" src="dice-app/resources/images/fortress_small.jpg" alt="fortress"
                          @click="toggleDefFortress">
                 </div>
             </div>
@@ -104,6 +104,6 @@
     </div>
 </div>
 
-<script src="main.js"></script>
+<script src="dice-app/dice-app.js"></script>
 </body>
 </html>
