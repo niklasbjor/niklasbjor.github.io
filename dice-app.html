@@ -10,97 +10,101 @@
 </head>
 <body>
 <div class="nav-bar"></div>
-<div id="app">
-    <div class="roller">
-        <div class="roller-line">
-            <div>
-                <img src="dice-app/resources/images/sword.jpg" alt="attack" height="80px" width="80px">
-            </div>
+<div id="app" class="roller">
+    <div id="attacker" class="involved-party">
+        <div>
+            <img src="dice-app/resources/images/sword.jpg" alt="attack" height="80px" width="80px">
+        </div>
+        <div class="dice-input">
             <label>
                 <input v-model="numAttDice" type="number" min="1" max="3">
             </label>
             <div class="column">
-                <button id="attIncrementBtn" class="operator" @click="incrementNumAttDice" :disabled="numAttDice >=3">+</button>
-                <button id="attDecrementBtn" class="operator" @click="decrementNumAttDice" :disabled="numAttDice <= 1">-</button>
+                <button id="attIncrementBtn" class="operator" @click="incrementNumAttDice" :disabled="numAttDice >=3">+
+                </button>
+                <button id="attDecrementBtn" class="operator" @click="decrementNumAttDice" :disabled="numAttDice <= 1">-
+                </button>
             </div>
-            <div class="modifier">
-                <div class="modifier-sub">
-                    <label for="attLeaderInput"></label>
-                    <input id="attLeaderInput" v-model="hasAttLeader" type="checkbox">
-                    <img class="tiny-image" src="dice-app/resources/images/leader_small.jpg" alt="leader"
-                         @click="toggleAttLeader">
-                </div>
+        </div>
+        <div class="modifier">
+            <div class="modifier-sub">
+                <label for="attLeaderInput"></label>
+                <input id="attLeaderInput" v-model="hasAttLeader" type="checkbox">
+                <img class="tiny-image" src="dice-app/resources/images/leader_small.jpg" alt="leader"
+                     @click="toggleAttLeader">
             </div>
-            <div>
-                <div class="result-display">
-                    <div v-for="attResult in attResults"
-                         class="display-number"
-                         :style="{ backgroundColor: attResult.color}">
-                        {{ attResult.value }}
-                        <div v-if="attResult.modifier > 0"
-                             class="modifier-display">
-                            +
-                        </div>
+        </div>
+        <div>
+            <div class="result-display">
+                <div v-for="attResult in attResults"
+                     class="display-number"
+                     :style="{ backgroundColor: attResult.color}">
+                    {{ attResult.value }}
+                    <div v-if="attResult.modifier > 0"
+                         class="modifier-display">
+                        +
                     </div>
                 </div>
             </div>
-            <div>
-                <p class="result-text" v-if="attLosses != null">
-                    Lose {{ attLosses }}
-                </p>
-            </div>
         </div>
-        <div class="roller-line">
-            <div>
-                <img src="dice-app/resources/images/shield.jpg" alt="defense" height="80px" width="80px">
-            </div>
+        <div>
+            <p class="result-text" v-if="attLosses != null">
+                Lose {{ attLosses }}
+            </p>
+        </div>
+    </div>
+    <div id="defender" class="involved-party">
+        <div>
+            <img src="dice-app/resources/images/shield.jpg" alt="defense" height="80px" width="80px">
+        </div>
+        <div class="dice-input">
             <label>
                 <input v-model="numDefDice" type="number" min="1" max="2">
             </label>
             <div class="column">
-                <button id="defIncrementBtn" class="operator" @click="incrementNumDefDice" :disabled="numDefDice >= 2">+</button>
-                <button id="defDecrementBtn" class="operator" @click="decrementNumDefDice" :disabled="numDefDice <= 1">-</button>
+                <button id="defIncrementBtn" class="operator" @click="incrementNumDefDice" :disabled="numDefDice >= 2">+
+                </button>
+                <button id="defDecrementBtn" class="operator" @click="decrementNumDefDice" :disabled="numDefDice <= 1">-
+                </button>
             </div>
-            <div class="modifier">
-                <div class="modifier-sub">
-                    <label for="defLeaderInput"></label>
-                    <input id="defLeaderInput" v-model="hasDefLeader" type="checkbox">
-                    <img class="tiny-image" src="dice-app/resources/images/leader_small.jpg" alt="leader"
-                         @click="toggleDefLeader">
-                </div>
-                <div class="modifier-sub">
-                    <label for="defFortressInput"></label>
-                    <input id="defFortressInput" v-model="hasDefFortress" type="checkbox">
-                    <img class="tiny-image" src="dice-app/resources/images/fortress_small.jpg" alt="fortress"
-                         @click="toggleDefFortress">
-                </div>
+        </div>
+        <div class="modifier">
+            <div class="modifier-sub">
+                <label for="defLeaderInput"></label>
+                <input id="defLeaderInput" v-model="hasDefLeader" type="checkbox">
+                <img class="tiny-image" src="dice-app/resources/images/leader_small.jpg" alt="leader"
+                     @click="toggleDefLeader">
             </div>
-            <div>
-                <div class="result-display">
-                    <div v-for="defResult in defResults"
-                         class="display-number"
-                         :style="{ backgroundColor: defResult.color}">
-                        {{ defResult.value }}
-                        <div v-if="defResult.modifier > 0"
-                             class="modifier-display">
-                            +
-                        </div>
-                        <div v-if="defResult.modifier > 1"
-                             class="modifier-display">
-                            +
-                        </div>
-                    </div>
-                </div>
+            <div class="modifier-sub">
+                <label for="defFortressInput"></label>
+                <input id="defFortressInput" v-model="hasDefFortress" type="checkbox">
+                <img class="tiny-image" src="dice-app/resources/images/fortress_small.jpg" alt="fortress"
+                     @click="toggleDefFortress">
             </div>
-            <div>
-                <p class="result-text" v-if="defLosses != null">
-                    Lose {{ defLosses }}
-                </p>
+        </div>
+        <div class="result-display">
+            <div v-for="defResult in defResults"
+                 class="display-number"
+                 :style="{ backgroundColor: defResult.color}">
+                {{ defResult.value }}
+                <div v-if="defResult.modifier > 0"
+                     class="modifier-display">
+                    +
+                </div>
+                <div v-if="defResult.modifier > 1"
+                     class="modifier-display">
+                    +
+                </div>
             </div>
         </div>
         <div>
-            <button @click="rollDice">Roll</button>
+            <p class="result-text" v-if="defLosses != null">
+                Lose {{ defLosses }}
+            </p>
         </div>
+    </div>
+    <div class="roll-button">
+        <button @click="rollDice">Roll</button>
     </div>
 </div>
 

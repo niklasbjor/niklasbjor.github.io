@@ -12,10 +12,6 @@ button:hover[disabled]{
     background-color: #dddddd;
 }
 
-#app {
-    display: flex;
-}
-
 * {
     font-family: Helvetica, Arial, sans-serif;
 }
@@ -43,8 +39,6 @@ input {
 }
 
 button {
-    margin-top: 30px;
-    margin-left: 10px;
     border: none;
     background-color: #8311c4;
     color: white;
@@ -63,51 +57,51 @@ button {
     margin-bottom: 15px;
 }
 
-
 .roller {
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: space-between;
-    align-content: space-around;
+    flex-direction: row;
+    justify-content: center;
 }
 
-.roller-line {
+.involved-party {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dice-input {
+    display: flex;
+    align-items: center;
+}
+
+.modifier {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    margin: 20px;
 }
 
 .result-display {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 240px;
     font-size: 32px;
     color: #585858;
-    margin-left: 30px;
-    margin-right: 30px;
-    width: 250px;
 }
 
 .display-number {
     display: flex;
+    flex-direction: row;
     font-size: 42px;
     width: 55px;
     color: #585858;
     padding: 5px;
-    margin: 10px;
+    margin: 5px;
 }
 
 .result-text {
     font-size: 32px;
     color: #585858;
-    margin: 30px;
-    text-align: right;
-}
-
-.modifier {
-    display: flex;
-    flex-direction: column;
-    width: 90px;
-    margin: 20px;
 }
 
 .modifier-display {
@@ -117,6 +111,7 @@ button {
 
 .modifier-sub {
     display: flex;
+    flex-direction: row;
     align-items: center;
 }
 
@@ -131,8 +126,11 @@ button {
 
 .operator {
     width: 40px;
-    border: 1px white;
     margin-top: 1px;
     margin-left: 2px;
     font-size: 28px;
+}
+
+.roll-button {
+    margin-top: 125px;
 }
