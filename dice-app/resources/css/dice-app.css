@@ -16,17 +16,8 @@ button:hover[disabled]{
     font-family: Helvetica, Arial, sans-serif;
 }
 
-h1 {
-    color: #4b0fcf;
-}
-
-p,
-li {
+p {
     font-size: 28px;
-}
-
-a {
-    text-decoration: none;
 }
 
 img {
@@ -64,9 +55,11 @@ button {
 }
 
 .involved-party {
+    height: 90vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
 }
 
 .dice-input {
@@ -122,6 +115,7 @@ button {
 .column {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .operator {
