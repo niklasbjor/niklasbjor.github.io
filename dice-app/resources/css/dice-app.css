@@ -67,6 +67,12 @@ button {
     align-items: center;
 }
 
+.number-input {
+    width: 30px;
+    -moz-appearance: textfield;
+    text-align: center;
+}
+
 .modifier {
     display: flex;
     flex-direction: row;
