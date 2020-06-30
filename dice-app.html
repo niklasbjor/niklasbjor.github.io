@@ -13,9 +13,9 @@
 <div id="app" class="roller">
     <div id="attacker" class="involved-party">
         <div>
-            <img src="dice-app/resources/images/sword.jpg" alt="attack" height="80px" width="80px">
+            <img src="dice-app/resources/images/archer_silhouette.jpg" class="figurine-image" alt="attack">
         </div>
-        <div class="column">
+        <div class="column input-group">
             <div class="dice-input">
                 <label>
                     <input class="number-input" v-model="numAttDice" type="number" min="1" max="3">
@@ -38,7 +38,7 @@
                 </div>
             </div>
         </div>
-        <div>
+        <div class="result-group">
             <div class="result-display">
                 <div v-for="attResult in attResults"
                      class="display-number"
@@ -50,18 +50,19 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div>
-            <p class="result-text" v-if="attLosses != null">
-                Lose {{ attLosses }}
-            </p>
+            <div>
+                <p class="result-text" v-if="attLosses != null">
+                    Lose {{ attLosses }}
+                </p>
+            </div>
         </div>
     </div>
+    <div id="divider" class="divider"></div>
     <div id="defender" class="involved-party">
         <div>
-            <img src="dice-app/resources/images/shield.jpg" alt="defense" height="80px" width="80px">
+            <img src="dice-app/resources/images/shield_silhouette.jpg" class="figurine-image" alt="defense">
         </div>
-        <div class="column">
+        <div class="column input-group">
             <div class="dice-input">
                 <label>
                     <input class="number-input" v-model="numDefDice" type="number" min="1" max="2">
@@ -90,29 +91,31 @@
                 </div>
             </div>
         </div>
-        <div class="result-display">
-            <div v-for="defResult in defResults"
-                 class="display-number"
-                 :style="{ backgroundColor: defResult.color}">
-                {{ defResult.value }}
-                <div v-if="defResult.modifier > 0"
-                     class="modifier-display">
-                    +
-                </div>
-                <div v-if="defResult.modifier > 1"
-                     class="modifier-display">
-                    +
+        <div class="result-group">
+            <div class="result-display">
+                <div v-for="defResult in defResults"
+                     class="display-number"
+                     :style="{ backgroundColor: defResult.color}">
+                    {{ defResult.value }}
+                    <div v-if="defResult.modifier > 0"
+                         class="modifier-display">
+                        +
+                    </div>
+                    <div v-if="defResult.modifier > 1"
+                         class="modifier-display">
+                        +
+                    </div>
                 </div>
             </div>
-        </div>
-        <div>
-            <p class="result-text" v-if="defLosses != null">
-                Lose {{ defLosses }}
-            </p>
+            <div>
+                <p class="result-text" v-if="defLosses != null">
+                    Lose {{ defLosses }}
+                </p>
+            </div>
         </div>
     </div>
-    <div class="roll-button">
-        <button @click="rollDice">Roll</button>
+    <div>
+        <button class="roll-button" @click="rollDice">Roll</button>
     </div>
 </div>
 
