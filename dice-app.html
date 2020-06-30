@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="result-group">
-            <div class="result-display">
+            <div class="result-display result-display--attacker">
                 <div v-for="attResult in attResults"
                      class="display-number"
                      :style="{ backgroundColor: attResult.color}">
@@ -51,7 +51,7 @@
                 </div>
             </div>
             <div>
-                <p class="result-text" v-if="attLosses != null">
+                <p class="result-text result-text--right-aligned" v-if="attLosses != null">
                     Lose {{ attLosses }}
                 </p>
             </div>
@@ -92,7 +92,7 @@
             </div>
         </div>
         <div class="result-group">
-            <div class="result-display">
+            <div class="result-display result-display--defender">
                 <div v-for="defResult in defResults"
                      class="display-number"
                      :style="{ backgroundColor: defResult.color}">

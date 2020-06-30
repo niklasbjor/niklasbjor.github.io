@@ -101,6 +101,14 @@ button {
     color: #585858;
 }
 
+.result-display--attacker {
+    margin-left: 50px;
+}
+
+.result-display--defender {
+    margin-right: 50px;
+}
+
 .display-number {
     display: flex;
     flex-direction: row;
@@ -115,6 +123,10 @@ button {
 .result-text {
     font-size: 32px;
     color: #585858;
+}
+
+.result-text--right-aligned {
+    text-align: right;
 }
 
 .modifier-display {
