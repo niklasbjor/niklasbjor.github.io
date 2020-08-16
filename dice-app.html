@@ -18,7 +18,7 @@
         <div class="column input-group">
             <div class="dice-input">
                 <label>
-                    <input class="number-input" v-model="numAttDice" type="number" min="1" max="3">
+                    <input class="number-input" v-model="numAttDice" type="number" min="1" max="3" readonly>
                 </label>
                 <div class="column">
                     <button id="attIncrementBtn" class="operator" @click="incrementNumAttDice"
@@ -65,7 +65,7 @@
         <div class="column input-group">
             <div class="dice-input">
                 <label>
-                    <input class="number-input" v-model="numDefDice" type="number" min="1" max="2">
+                    <input class="number-input" v-model="numDefDice" type="number" min="1" max="2" readonly>
                 </label>
                 <div class="column">
                     <button id="defIncrementBtn" class="operator" @click="incrementNumDefDice"
