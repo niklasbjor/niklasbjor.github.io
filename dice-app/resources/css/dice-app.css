@@ -34,8 +34,12 @@ button {
 }
 
 input[type=checkbox] {
-    height: 40px;
-    width: 40px;
+    -ms-transform: scale(3); /* IE */
+    -moz-transform: scale(3); /* FF */
+    -webkit-transform: scale(3); /* Safari and Chrome */
+    -o-transform: scale(3); /* Opera */
+    transform: scale(3);
+    margin: 20px;
 }
 
 :disabled {
