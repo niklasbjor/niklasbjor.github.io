@@ -4,11 +4,11 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-button:hover{
+button:hover {
     background-color: #c014ba;
 }
 
-button:hover[disabled]{
+button:hover[disabled] {
     background-color: #dddddd;
 }
 
@@ -29,6 +29,11 @@ button {
     border: none;
     background-color: #8311c4;
     color: white;
+}
+
+input[type=checkbox] {
+    height: 40px;
+    width: 40px;
 }
 
 :disabled {
