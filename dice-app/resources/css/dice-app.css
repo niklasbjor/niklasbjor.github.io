@@ -21,7 +21,6 @@ p {
 }
 
 input {
-    font-size: 80px;
     padding: 10px 10px;
     border-width: 0;
     background-color: rgba(131, 17, 196, 0.15);
@@ -34,22 +33,16 @@ button {
 }
 
 input[type=checkbox] {
-    -ms-transform: scale(3); /* IE */
-    -moz-transform: scale(3); /* FF */
-    -webkit-transform: scale(3); /* Safari and Chrome */
-    -o-transform: scale(3); /* Opera */
-    transform: scale(3);
+    -ms-transform: scale(2.5); /* IE */
+    -moz-transform: scale(2.5); /* FF */
+    -webkit-transform: scale(2.5); /* Safari and Chrome */
+    -o-transform: scale(2.5); /* Opera */
+    transform: scale(2.5);
     margin: 20px;
 }
 
 :disabled {
     background-color: #dddddd;
-}
-
-.nav-bar {
-    background: #8311c4;
-    height: 30px;
-    margin-bottom: 15px;
 }
 
 .figurine-image {
@@ -78,7 +71,7 @@ input[type=checkbox] {
 
 /* input */
 .input-group {
-    height: 20vh;
+    height: 30vh;
 }
 
 .dice-input {
@@ -88,7 +81,8 @@ input[type=checkbox] {
 }
 
 .number-input {
-    width: 50px;
+    font-size: 5vh;
+    width: 4vh;
     -moz-appearance: textfield;
     text-align: center;
     margin-right: 20px;
@@ -109,7 +103,7 @@ input[type=checkbox] {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 25vh;
+    height: 30vh;
     color: #585858;
 }
 
@@ -126,7 +120,7 @@ input[type=checkbox] {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    font-size: 80px;
+    font-size: 7vh;
     height: 7vh;
     width: 7vh;
     color: #585858;
@@ -135,7 +129,8 @@ input[type=checkbox] {
 }
 
 .result-text {
-    font-size: 60px;
+    height: 10vh;
+    font-size: 4vh;
     color: #585858;
 }
 
@@ -154,7 +149,8 @@ input[type=checkbox] {
     align-items: center;
 }
 
-.tiny-image {
+.modifier-image {
+    max-height: 10vh;
     margin: 4px;
 }
 
@@ -162,19 +158,22 @@ input[type=checkbox] {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .operator {
-    width: 100px;
-    height: 100px;
+    width: 6vh;
+    height: 6vh;
+    max-height: 8vh;
+    max-width: 8vh;
     margin-top: 1px;
     margin-left: 2px;
-    font-size: 70px;
+    font-size: 5vh;
 }
 
 .roll-button {
-    height: 100px;
-    width: 220px;
-    font-size: 80px;
+    height: 7vh;
+    width: 14vh;
+    font-size: 6vh;
     margin: 33vh 0 0 5vw;
 }

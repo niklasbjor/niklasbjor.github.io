@@ -9,7 +9,6 @@
     <meta property="og:image" content="https://niklasbjor.github.io/resources/images/dice_preview.jpg">
 </head>
 <body>
-<div class="nav-bar"></div>
 <div id="app" class="roller">
     <div id="attacker" class="involved-party">
         <div>
@@ -33,7 +32,7 @@
                 <div class="modifier-sub">
                     <label for="attLeaderInput"></label>
                     <input id="attLeaderInput" v-model="hasAttLeader" type="checkbox">
-                    <img class="tiny-image" src="dice-app/resources/images/leader_100.png" alt="leader"
+                    <img class="modifier-image" src="dice-app/resources/images/leader_100.png" alt="leader"
                          @click="toggleAttLeader">
                 </div>
             </div>
@@ -80,13 +79,13 @@
                 <div class="modifier-sub">
                     <label for="defLeaderInput"></label>
                     <input id="defLeaderInput" v-model="hasDefLeader" type="checkbox">
-                    <img class="tiny-image" src="dice-app/resources/images/leader_100.png" alt="leader"
+                    <img class="modifier-image" src="dice-app/resources/images/leader_100.png" alt="leader"
                          @click="toggleDefLeader">
                 </div>
                 <div class="modifier-sub">
                     <label for="defFortressInput"></label>
                     <input id="defFortressInput" v-model="hasDefFortress" type="checkbox">
-                    <img class="tiny-image" src="dice-app/resources/images/fortress_100.png" alt="fortress"
+                    <img class="modifier-image" src="dice-app/resources/images/fortress_100.png" alt="fortress"
                          @click="toggleDefFortress">
                 </div>
             </div>
