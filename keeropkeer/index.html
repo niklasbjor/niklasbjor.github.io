@@ -5,24 +5,29 @@
     <title>X op X</title>
 </head>
 <body>
-<ul id="messages"></ul>
-<form action="">
-    <input id="m" autocomplete="off" /><button>Send</button>
-</form>
+<div id="app">
+    <form action="">
+        <button id="roll-button" class="roll-button">ROL</button>
+    </form>
+    <div>
+        <div id="results"></div>
+    </div>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
     $(function () {
         var socket = io();
-        $('form').submit(function(e) {
+        $('form').submit(function (e) {
+            console.log('TN: Sending roll dice command');
             e.preventDefault(); // prevents page reloading
-            socket.emit('chat message', $('#m').val());
-            $('#m').val('');
+            socket.emit('cmd: roll dice', 5);
             return false;
         });
-        socket.on('chat message', function (msg) {
-            $('#messages').append($('<li>').text(msg));
-        })
+        socket.on('ev: dice rolled', function (result) {
+            console.log('TN: Received dice rolled event: ' + result);
+            $('#results').text(result);
+        });
     });
 </script>
 </body>

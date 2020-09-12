@@ -15,12 +15,13 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
         console.log('user disconnected');
     });
-    socket.on('chat message', (msg) => {
-        console.log('Message: ' + msg);
-        io.emit('chat message', msg);
+    socket.on('cmd: roll dice', () => {
+        console.log('TN: Received roll dice command');
+        let result = Math.ceil(Math.random() * 6);
+        console.log('TN: Generated: ' + result);
+        io.emit('ev: dice rolled', result);
     });
 });
-
 
 http.listen(3000, () => {
     console.log('listening on *:3000');
