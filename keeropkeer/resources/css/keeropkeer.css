@@ -9,6 +9,31 @@ body {
     font: 13px Helvetica, Arial;
 }
 
+#app {
+    display: flex;
+    flex-direction: column;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+}
+
+.results-row {
+    display: flex;
+    justify-content: center;
+}
+
+.dice-result {
+    min-height: 100px;
+    min-width: 100px;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+}
+
 .roll-button {
     min-height: 100px;
     min-width: 200px;

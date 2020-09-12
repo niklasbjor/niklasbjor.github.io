@@ -15,13 +15,49 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
         console.log('user disconnected');
     });
-    socket.on('cmd: roll dice', () => {
-        console.log('TN: Received roll dice command');
-        let result = Math.ceil(Math.random() * 6);
-        console.log('TN: Generated: ' + result);
-        io.emit('ev: dice rolled', result);
+    socket.on('cmd: roll all dice', () => {
+        console.log('TN: Received roll all dice command');
+        let resultA = rollNumberDie();
+        let resultB = rollNumberDie();
+        let resultC = rollNumberDie();
+        let resultX = rollColorDie();
+        let resultY = rollColorDie();
+        let resultZ = rollColorDie();
+        let results = {resultA, resultB, resultC, resultX, resultY, resultZ};
+        console.log('TN: Generated: ' + results);
+        io.emit('ev: all dice rolled', results);
     });
 });
+
+// TODO move methods to new dice util
+function rollNumberDie() {
+    let number = rollDie();
+    return number === 6 ? '?': number;
+}
+
+function rollColorDie() {
+    let number = rollDie();
+    switch (number) {
+        case 1:
+            return 'Red';
+        case 2:
+            return 'Orange';
+        case 3:
+            return 'Yellow';
+        case 4:
+            return 'Green';
+        case 5:
+            return 'Blue';
+        case 6:
+            return 'Black';
+        default:
+            throw new Error('Failed to convert number to color');
+    }
+}
+
+function rollDie() {
+    return Math.ceil(Math.random() * 6);
+}
 
 http.listen(3000, () => {
     console.log('listening on *:3000');
