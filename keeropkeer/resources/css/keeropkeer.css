@@ -12,6 +12,8 @@ body {
 #app {
     display: flex;
     flex-direction: column;
+    background-color: #E5E5EE;
+    min-height: 100vh;
 }
 
 .results {
@@ -25,8 +27,14 @@ body {
 }
 
 .dice-result {
-    min-height: 100px;
-    min-width: 100px;
+    min-height: 15vh;
+    min-width: 15vh;
+    margin: 2vh;
+}
+
+.dice-result--number {
+    font-size: 12vh;
+    text-align: center;
 }
 
 .actions {
@@ -35,9 +43,12 @@ body {
 }
 
 .roll-button {
-    min-height: 100px;
-    min-width: 200px;
-    background-color: #9d77c4;
+    min-height: 10vh;
+    min-width: 30vh;
+    font-size: 8vh;
+    background-color: black;
+    color: white;
+    margin-top: 10vh;
 }
 
 .bg-red {
