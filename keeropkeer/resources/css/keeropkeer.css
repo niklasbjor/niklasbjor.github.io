@@ -39,3 +39,34 @@ body {
     min-width: 200px;
     background-color: #9d77c4;
 }
+
+.bg-red {
+    background-color: #e60045;
+    color: #e60045;
+}
+
+.bg-orange {
+    background-color: #f87a00;
+    color: #f87a00;
+}
+
+.bg-yellow {
+    background-color: #fdcd00;
+    color: #fdcd00;
+}
+
+.bg-green {
+    background-color: #95bf22;
+    color: #95bf22;
+}
+
+.bg-blue {
+    background-color: #5ec4f7;
+    color: #5ec4f7;
+}
+
+.bg-black {
+    background-color: black;
+    color: black;
+}
+

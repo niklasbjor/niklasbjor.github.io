@@ -24,7 +24,7 @@ io.on('connection', (socket) => {
         let resultY = rollColorDie();
         let resultZ = rollColorDie();
         let results = {resultA, resultB, resultC, resultX, resultY, resultZ};
-        console.log('TN: Generated: ' + results);
+        console.log('TN: Generated: ' + JSON.stringify(results));
         io.emit('ev: all dice rolled', results);
     });
 });
