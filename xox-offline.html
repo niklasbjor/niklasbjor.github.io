@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+    <link href="./xox-offline/resources/css/keeropkeer.css" type="text/css" rel="stylesheet">
+    <title>X op X (offline)</title>
+</head>
+<body>
+<div id="app">
+    <div class="results">
+        <div class="results-row">
+            <div id="resultA" class="dice-result dice-result--number">
+                <p id="resultTextA"></p>
+            </div>
+            <div id="resultB" class="dice-result dice-result--number">
+                <p id="resultTextB"></p>
+            </div>
+            <div id="resultC" class="dice-result dice-result--number">
+                <p id="resultTextC"></p>
+            </div>
+        </div>
+        <div class="results-row">
+            <div id="resultX" class="dice-result"></div>
+            <div id="resultY" class="dice-result"></div>
+            <div id="resultZ" class="dice-result"></div>
+        </div>
+        <div class="results-row">
+            <div id="resultS" class="dice-result dice-result--image">
+                <img id="special-dice-img" src="./xox-offline/resources/images/heart.png" class="special-image"
+                     alt="special">
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <button id="roll-button" class="primary-button" onclick="rollAllDice()">ROLL</button>
+    </div>
+    <div>
+        <p id="log" class="log"></p>
+        <p id="logMinusOne" class="log"></p>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+    const allDiceIds = ['A', 'B', 'C', 'X', 'Y', 'Z', 'S']
+
+    function rollAllDice() {
+        console.log('roll all dice')
+        let resultA = rollNumberDie();
+        let resultB = rollNumberDie();
+        let resultC = rollNumberDie();
+        let resultX = rollColorDie();
+        let resultY = rollColorDie();
+        let resultZ = rollColorDie();
+        let resultSpecial = rollSpecialDie();
+        let results = {resultA, resultB, resultC, resultX, resultY, resultZ, resultSpecial};
+        console.log('TN: Generated: ' + JSON.stringify(results));
+
+        unselectAllDice()
+
+        $('#resultTextA').text(results.resultA)
+        $('#resultTextB').text(results.resultB)
+        $('#resultTextC').text(results.resultC)
+
+        setDiceElementColor('resultX', results.resultX)
+        setDiceElementColor('resultY', results.resultY)
+        setDiceElementColor('resultZ', results.resultZ)
+
+        $('#special-dice-img').attr('src', './xox-offline/resources/images/' + results.resultSpecial + '.png')
+
+        $('#resultTextSpecial').text(results.resultSpecial)
+
+        $('#logMinusOne').text($('#log').text())
+        $('#log').text(JSON.stringify(results))
+    }
+
+    function rollNumberDie() {
+        let number = rollDie();
+        return number === 6 ? '?': number;
+    }
+
+    function rollColorDie() {
+        switch (rollDie()) {
+            case 1:
+                return 'Red';
+            case 2:
+                return 'Orange';
+            case 3:
+                return 'Yellow';
+            case 4:
+                return 'Green';
+            case 5:
+                return 'Blue';
+            case 6:
+                return 'Black';
+            default:
+                throw new Error('Failed to convert number to color');
+        }
+    }
+
+    function rollSpecialDie() {
+        switch (rollDie()) {
+            case 1:
+            case 2:
+                return 'heart';
+            case 3:
+                return 'bomb';
+            case 4:
+                return 'stars';
+            case 5:
+                return 'three-in-a-row';
+            case 6:
+                return 'colorblock';
+            default:
+                throw new Error('Failed to convert number to special');
+        }
+    }
+
+    function rollDie() {
+        return Math.ceil(Math.random() * 6);
+    }
+
+
+    $(function () {
+        addDiceClickListeners()
+    })
+
+    function addDiceClickListeners() {
+        console.log('adding dice click listeners')
+        allDiceIds.forEach((diceId) => {
+            document.getElementById('result' + diceId).addEventListener('click', () => handleClick(diceId))
+        })
+    }
+
+    function unselectAllDice() {
+        allDiceIds.forEach((diceId) => {
+            document.getElementById('result' + diceId).classList.remove('selected')
+        })
+    }
+
+    function handleClick(diceId) {
+        let element = document.getElementById('result' + diceId)
+
+        if (!element.classList.contains('selected')) {
+            console.log(`dice select: ${diceId}`)
+            element.classList.add('selected')
+        } else {
+            console.log(`dice unselect: ${diceId}`)
+            element.classList.remove('selected')
+        }
+    }
+
+    function clearBgColor(element) {
+        element.classList.remove('bg-red', 'bg-orange', 'bg-yellow', 'bg-green', 'bg-blue', 'bg-black')
+    }
+
+    function setDiceElementColor(elementId, value) {
+        let element = document.getElementById(elementId)
+        clearBgColor(element)
+        element.classList.add('bg-' + value.toLowerCase())
+        element.innerText = value
+    }
+</script>
+</body>
+</html>

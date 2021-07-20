@@ -1,0 +1,157 @@
+* {
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 13px Helvetica, Arial;
+}
+
+/* lobby */
+.general-input {
+    font-size: 5vh;
+    text-align: center;
+    max-width: 100vw;
+}
+
+/* 404 page */
+
+.info-page {
+    min-height: 100vh;
+    background-color: #E5E5EE;
+    text-align: center;
+    font-size: 7vh;
+}
+
+.info-link {
+    font-size: 5vh;
+}
+
+/* XoX game */
+
+#app {
+    display: flex;
+    flex-direction: column;
+    background-color: #E5E5EE;
+    min-height: 100vh;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+}
+
+.results-row {
+    display: flex;
+    justify-content: center;
+}
+
+.dice-result {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 30vw;
+    min-width: 30vw;
+    margin: 1vw;
+    border-radius: 7vw;
+}
+
+@media only screen and (orientation: landscape) {
+    .dice-result {
+        min-height: 15vh;
+        min-width: 15vh;
+        margin: 2vh;
+        border-radius: 3vh;
+    }
+}
+
+.selected {
+    border: 2vw solid #ab02e0;
+}
+
+@media only screen and (orientation: landscape) {
+    .selected {
+        border: 1vh solid #ab02e0;
+    }
+}
+
+.dice-result--number {
+    background-color: #cccccc;
+    font-size: 22vw;
+}
+
+.special-image {
+    height: 30vw;
+    width: 30vw;
+}
+
+@media only screen and (orientation: landscape) {
+    .dice-result--number {
+        font-size: 11vh;
+    }
+
+    .special-image {
+        height: 15vh;
+        width: 15vh;
+    }
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+}
+
+.primary-button {
+    min-height: 22vw;
+    min-width: 60vw;
+    font-size: 18vw;
+    background-color: black;
+    color: white;
+    margin-top: 10vh;
+}
+
+@media only screen and (orientation: landscape) {
+    .primary-button {
+        min-height: 10vh;
+        min-width: 30vh;
+        font-size: 8vh;
+    }
+}
+
+.log {
+    color: #E5E5EE;
+}
+
+.bg-red {
+    background-color: #e60045;
+    color: #e60045;
+}
+
+.bg-orange {
+    background-color: #f87a00;
+    color: #f87a00;
+}
+
+.bg-yellow {
+    background-color: #fdcd00;
+    color: #fdcd00;
+}
+
+.bg-green {
+    background-color: #95bf22;
+    color: #95bf22;
+}
+
+.bg-blue {
+    background-color: #5ec4f7;
+    color: #5ec4f7;
+}
+
+.bg-black {
+    background-color: black;
+    color: black;
+}
+
